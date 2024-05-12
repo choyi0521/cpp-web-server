@@ -27,13 +27,16 @@
     <ClCompile Include="mime_types.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="reply.cpp">
+    <ClCompile Include="response.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="request_parser.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="server.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="route_manager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +53,7 @@
     <ClInclude Include="mime_types.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="reply.hpp">
+    <ClInclude Include="response.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="request.hpp">
@@ -63,6 +66,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="regex_orderable.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="route_manager.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

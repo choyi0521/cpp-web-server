@@ -19,7 +19,7 @@ namespace http {
 namespace server {
 
 /// A request received from a client.
-struct request
+struct Request
 {
   std::string method;
   std::string uri;
@@ -27,6 +27,7 @@ struct request
   int http_version_major;
   int http_version_minor;
   std::vector<header> headers;
+  std::vector<std::string> path_match;
 };
 
 } // namespace server

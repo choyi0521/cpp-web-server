@@ -6,7 +6,7 @@
 #include "connection.hpp"
 #include "connection_manager.hpp"
 #include "request.hpp"
-#include "reply.hpp"
+#include "response.hpp"
 
 
 namespace http {
@@ -21,7 +21,7 @@ namespace http {
 
 			void run();
 
-			void add_route(const std::string& url, std::function<void(const request&, reply&)> func);
+			void add_route(const std::string& method, const RoutePath& path, const std::function<void(const Request&, Response&)>& func);
 		
 		private:
 			void do_accept();

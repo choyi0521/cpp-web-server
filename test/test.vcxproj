@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3590f01e-94da-4daf-b3e3-32e5934b4fef}</ProjectGuid>
-    <RootNamespace>rest</RootNamespace>
+    <ProjectGuid>{ee460b42-e2c3-4337-ae98-4c310e7e8f2f}</ProjectGuid>
+    <RootNamespace>test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,13 +104,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\choyi\Documents\development\cpp_libs\boost_1_84_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\choyi\Documents\development\cpp_libs\boost_1_84_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,33 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="connection.cpp" />
-    <ClCompile Include="connection_manager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mime_types.cpp" />
-    <ClCompile Include="response.cpp" />
-    <ClCompile Include="request_parser.cpp" />
-    <ClCompile Include="route_manager.cpp" />
-    <ClCompile Include="server.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="connection.hpp" />
-    <ClInclude Include="connection_manager.hpp" />
-    <ClInclude Include="header.hpp" />
-    <ClInclude Include="mime_types.hpp" />
-    <ClInclude Include="regex_orderable.hpp" />
-    <ClInclude Include="response.hpp" />
-    <ClInclude Include="request.hpp" />
-    <ClInclude Include="request_parser.hpp" />
-    <ClInclude Include="route_manager.hpp" />
-    <ClInclude Include="server.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="doc_root\data_1K.html" />
-    <None Include="doc_root\data_2K.html" />
-    <None Include="doc_root\data_4K.html" />
-    <None Include="doc_root\data_8K.html" />
-    <None Include="doc_root\index.html" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

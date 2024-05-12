@@ -57,8 +57,8 @@ namespace http {
 			);
 		}
 
-		void Server::add_route(const std::string& url, std::function<void(const request&, reply&)> func) {
-			connection_manager_.add_route(url, func);
+		void Server::add_route(const std::string &method, const RoutePath& path, const std::function<void(const Request&, Response&)>& func) {
+			connection_manager_.add_route(method, path, func);
 		}
 	}
 }

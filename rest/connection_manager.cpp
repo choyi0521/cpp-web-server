@@ -4,7 +4,7 @@
 
 namespace http {
 	namespace server {
-		connection_manager::connection_manager() {}
+		connection_manager::connection_manager() : route_manager_() {}
 
 		void connection_manager::start(connection_ptr c) {
 			connections_.insert(c);
@@ -22,15 +22,12 @@ namespace http {
 			connections_.clear();
 		}
 
-		void connection_manager::add_route(const std::string& url, std::function<void(const request&, reply&)> func) {
-			route_map_[url] = func;
+		void connection_manager::add_route(const std::string &method, const RoutePath& path, const std::function<void(const Request&, Response&)>& func) {
+			route_manager_.add_route(method, path, func);
 		}
 
-		std::function<void(const request&, reply&)> connection_manager::get_route(const std::string& url) const {
-			auto it = route_map_.find(url);
-			if (it != route_map_.end())
-				return it->second;
-			return nullptr;
+		std::function<void(const Request&, Response&)> connection_manager::get_route(Request& req) const {
+			return route_manager_.get_route(req);
 		}
 	}
 }

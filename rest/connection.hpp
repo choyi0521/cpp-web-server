@@ -4,7 +4,7 @@
 #include <boost/asio.hpp>
 #include <array>
 #include <memory>
-#include "reply.hpp"
+#include "response.hpp"
 #include "request.hpp"
 #include "request_parser.hpp"
 
@@ -28,7 +28,7 @@ namespace http {
 		private:
 			void do_read();
 
-			void handle_request(const request& req, reply& rep);
+			void handle_request(Request& req, Response& rep);
 			
 			void do_write();
 
@@ -38,11 +38,11 @@ namespace http {
 
 			std::array<char, 8192> buffer_;
 
-			request request_;
+			Request request_;
 
 			request_parser request_parser_;
 
-			reply reply_;
+			Response reply_;
 		};
 
 		typedef std::shared_ptr<connection> connection_ptr;

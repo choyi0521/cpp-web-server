@@ -8,8 +8,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
 
-#ifndef HTTP_REPLY_HPP
-#define HTTP_REPLY_HPP
+#ifndef HTTP_RESPONSE_HPP
+#define HTTP_RESPONSE_HPP
 
 #include <string>
 #include <vector>
@@ -20,7 +20,7 @@ namespace http {
 namespace server {
 
 /// A reply to be sent to a client.
-struct reply
+struct Response
 {
   /// The status of the reply.
   enum status_type
@@ -55,7 +55,7 @@ struct reply
   std::vector<boost::asio::const_buffer> to_buffers();
 
   /// Get a stock reply.
-  static reply stock_reply(status_type status);
+  static Response stock_reply(status_type status);
 };
 
 } // namespace server

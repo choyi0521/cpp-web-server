@@ -4,13 +4,13 @@
 #include <set>
 #include <map>
 #include <functional>
+#include <unordered_map>
 #include "connection.hpp"
+#include "route_manager.hpp"
 //#include "regex_orderable.hpp"
 
 namespace http {
 	namespace server {
-		typedef std::map<std::string, std::function<void(const request&, reply&)>> RouteMap;
-
 		class connection_manager {
 		public:
 			connection_manager(const connection_manager&) = delete;
@@ -24,13 +24,13 @@ namespace http {
 
 			void stop_all();
 
-			void add_route(const std::string& url, std::function<void(const request&, reply&)> func);
+			void add_route(const std::string &method, const RoutePath& path, const std::function<void(const Request&, Response&)>& func);
 
-			std::function<void(const request&, reply&)> get_route(const std::string& url) const;
+			std::function<void(const Request&, Response&)> get_route(Request& req) const;
 
 		private:
 			std::set<connection_ptr> connections_;
-			RouteMap route_map_;
+			RouteManager route_manager_;
 		};
 	}
 }

@@ -35,7 +35,7 @@ namespace http {
 							do_write();
 						}
 						else if (result == request_parser::bad) {
-							reply_ = reply::stock_reply(reply::bad_request);
+							reply_ = Response::stock_reply(Response::bad_request);
 							do_write();
 						}
 						else {
@@ -49,10 +49,10 @@ namespace http {
 			);
 		}
 
-		void connection::handle_request(const request& req, reply& rep) {
-			std::function<void(const request&, reply&)> route_fn = connection_manager_.get_route(req.decoded_uri);
+		void connection::handle_request(Request& req, Response& rep) {
+			std::function<void(const Request&, Response&)> route_fn = connection_manager_.get_route(req);
 			if (route_fn == nullptr) {
-				rep = reply::stock_reply(reply::not_found);
+				rep = Response::stock_reply(Response::not_found);
 				return;
 			}
 			route_fn(req, rep);
